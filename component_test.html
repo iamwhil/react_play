@@ -19,11 +19,29 @@
   <script type="text/babel">
     var destination = document.querySelector("#container");
 
+    class HelloWorld extends React.Component {
+      render(){
+        return( <p>Oh Hello, World you.  Oh you {this.props.greetTarget}.</p> );
+      }
+    }
 
+    class Buttonify extends React.Component {
+      render(){
+        return(
+          <div>
+            <button type={this.props.behavior}>{this.props.children}</button>
+          </div>
+        );
+      }
+    }
 
     ReactDOM.render(
       <div>
-        <p>Oh World, Hello you. Oh you.</p>
+        <HelloWorld greetTarget="Watermellon"/>
+        <HelloWorld/>
+        <div>
+          <Buttonify behavior="submit">Send the pigeons</Buttonify>
+        </div>
       </div>,
       destination
     )
